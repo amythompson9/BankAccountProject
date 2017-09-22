@@ -18,13 +18,10 @@ namespace BankAccountProject
         {
             get { return this.minimumBalance; }
         }
-        public Savings(int accountNumber, double accountBalance, double withdrawMoney, double depositMoney, double minimumBalance)
+        public Savings(int accountNumber, double accountBalance)
         {
             this.accountNumber = accountNumber;
             this.accountBalance = accountBalance;
-            this.withdrawMoney = withdrawMoney;
-            this.depositMoney = depositMoney;
-            this.minimumBalance = minimumBalance;
         }
         public override void DisplayAccountNumber()
         {
@@ -36,13 +33,17 @@ namespace BankAccountProject
         }
         public override void DisplayWithdrawMoney()
         {
-            Console.WriteLine("How much would you like to withdraw from your Savings Account?");
+            Console.WriteLine("How much would you like to withdraw from your savings account today?");
             double amountFromSavings = double.Parse(Console.ReadLine());
             double newSavingsBalance = (accountBalance - amountFromSavings);
+            Console.WriteLine("Your new checking account balance is $" + newSavingsBalance + "\n");
         }
         public override void DisplayDepositMoney()
         {
-
+            Console.WriteLine("How much would you like to deposit into your savings account today?");
+            double amountToSavings = double.Parse(Console.ReadLine());
+            double newSavingsBalance = (accountBalance + amountToSavings);
+            Console.WriteLine("Your new checking account balance is $" + newSavingsBalance + "\n");
         }
     }
 }

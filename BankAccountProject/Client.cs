@@ -55,5 +55,6 @@ namespace BankAccountProject
             Console.WriteLine("Social Security Number: " + "\n" + socialSecurityNumber + "\n");
             Console.WriteLine("Current Address: " + "\n" +clientAddress + "\n");
         }
+        
     }
 }

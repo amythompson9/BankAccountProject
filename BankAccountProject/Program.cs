@@ -37,6 +37,8 @@ namespace BankAccountProject
             //1 override method(at least)
 
             Client client1 = new Client("John", "Smith", "March 14, 1985", "123 45 6789", "123 West Main Street \nWalla Walla, Washington 99362");
+            Checking checkingSmith = new Checking(31415926, 1000.25d);
+            Savings savingsSmith = new Savings(31415927, 250.37d);
             Console.WriteLine("Welcome to The Bank. You got money in it.");
             Console.WriteLine();
             Console.WriteLine("1. View Client Information \n2. View Account Balance \n3. Deposit Funds \n4. Withdraw Funds \n5. Exit");
@@ -44,7 +46,6 @@ namespace BankAccountProject
             if (menuChoice == 1)
             {
                 client1.ClientInformation();
-
             }
             else if (menuChoice == 2)
             {
@@ -52,16 +53,25 @@ namespace BankAccountProject
                 int checkAccountBalance = int.Parse(Console.ReadLine());
                 if (checkAccountBalance == 1)
                 {
-
+                    checkingSmith.DisplayAccountBalance();
                 }
                 else if (checkAccountBalance == 2)
                 {
-                    
+                    savingsSmith.DisplayAccountBalance();
                 }
             }
             else if (menuChoice == 3)
             {
+                Console.WriteLine("1. Deposit into Checking Account \n2. Deposit into Savings Account");
+                int depositInAccount = int.Parse(Console.ReadLine());
+                if (depositInAccount == 1)
+                {
+                    
+                }
+                else if (depositInAccount == 2)
+                {
 
+                }
             }
             else if (menuChoice == 4)
             {
