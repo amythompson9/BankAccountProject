@@ -20,22 +20,6 @@ namespace BankAccountProject
         }
         static void Main(string[] args)
         {
-            //Program Class
-            // Must instantiate one client object
-            //Must instantiate one checking account object
-            //Must instantiate one savings account object
-            //All menu options listed above must have functionality behind them
-
-            //Program should run until user selects 'Exit'
-
-            //Other Tasks
-
-            //After each transaction, the current balance should be displayed on the screen.
-            //Your program should include:
-            //1 abstract method(at least)
-            //1 virtual method(at least)
-            //1 override method(at least)
-
             Client client1 = new Client();
             Checking checkingAccount = new Checking();
             Savings savingsAccount = new Savings();
@@ -45,61 +29,158 @@ namespace BankAccountProject
             Console.WriteLine(mainMenu);
             while (true)
             {
-                
                 int menuChoice = int.Parse(Console.ReadLine());
                 if (menuChoice == 5)
                 {
-                    Console.WriteLine("Thank you for using The Bank.");
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you for choosing The Bank.");
                     Console.WriteLine();
                     break;
                 }
                 else if (menuChoice == 1)
                 {
+                    Console.WriteLine();
                     client1.ClientInformation();
                     Console.WriteLine();
-                    Console.WriteLine(mainMenu);
+                    Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
                     Console.WriteLine();
+                    int infoMenu = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    if (infoMenu == 1)
+                    {
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
+                    }
+                    else if (infoMenu == 5)
+                    {
+                        Console.WriteLine("Thank you for choosing The Bank.");
+                        Console.WriteLine();
+                        break;
+                    }
+                    
                 }
                 else if (menuChoice == 2)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("1. Checking Account Balance \n2. Savings Account Balance");
+                    Console.WriteLine();
                     int checkAccountBalance = int.Parse(Console.ReadLine());
                     if (checkAccountBalance == 1)
                     {
+                        Console.WriteLine();
                         checkingAccount.DisplayAccountType();
                         checkingAccount.DisplayAccountNumber();
                         checkingAccount.DisplayAccountBalance();
                         Console.WriteLine();
-                        Console.WriteLine(mainMenu);
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
                         Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                     else if (checkAccountBalance == 2)
                     {
+                        Console.WriteLine();
                         savingsAccount.DisplayAccountType();
                         savingsAccount.DisplayAccountNumber();
                         savingsAccount.DisplayAccountBalance();
                         Console.WriteLine();
-                        Console.WriteLine(mainMenu);
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
                         Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                 }
                 else if (menuChoice == 3)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("1. Withdraw from Checking Account \n2. Withdraw from Savings Account");
+                    Console.WriteLine();
                     int withdrawFromAccount = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
                     if (withdrawFromAccount == 1)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("How much would you like to withdraw from your checking account today?");
+                        Console.WriteLine();
                         double withdrawAmount = double.Parse(Console.ReadLine());
                         checkingAccount.Withdraw(withdrawAmount);
                         Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                        Console.WriteLine();
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
+                        Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                     else if (withdrawFromAccount == 2)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("How much would you like to withdraw from your savings account today?");
+                        Console.WriteLine();
                         double withdrawAmount = double.Parse(Console.ReadLine());
+                        Console.WriteLine();
                         savingsAccount.Withdraw(withdrawAmount);
-                        Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
+                        while (savingsAccount.AccountBalance < savingsAccount.MinimumBalance)
+                        {
+                            Console.WriteLine("You must maintain a minimum balance of $100.00 in your Savings Account.");
+                            savingsAccount.AccountBalance += withdrawAmount;
+                            Console.WriteLine("Your current balance is ${0}.", savingsAccount.AccountBalance);
+                            Console.WriteLine("How much would you like to withdraw from your savings account today?");
+                            withdrawAmount = double.Parse(Console.ReadLine());
+                            savingsAccount.Withdraw(withdrawAmount);
+                        }
+                        if (savingsAccount.AccountBalance > savingsAccount.MinimumBalance)
+                        {
+                            Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
+                        Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                 }
                 else if (menuChoice == 4)
@@ -108,17 +189,51 @@ namespace BankAccountProject
                     int depositIntoAccount = int.Parse(Console.ReadLine());
                     if (depositIntoAccount == 1)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("How much would you like to deposit into your checking account today?");
                         double depositAmount = double.Parse(Console.ReadLine());
                         checkingAccount.Deposit(depositAmount);
                         Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                        Console.WriteLine();
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
+                        Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                     else if (depositIntoAccount == 2)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("How much would you like to deposit into your savings account today?");
                         double depositAmount = double.Parse(Console.ReadLine());
                         savingsAccount.Deposit(depositAmount);
                         Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
+                        Console.WriteLine();
+                        Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
+                        Console.WriteLine();
+                        int infoMenu = int.Parse(Console.ReadLine());
+                        Console.WriteLine();
+                        if (infoMenu == 1)
+                        {
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                        else if (infoMenu == 5)
+                        {
+                            Console.WriteLine("Thank you for choosing The Bank.");
+                            Console.WriteLine();
+                            break;
+                        }
                     }
                 }
                 else
