@@ -36,55 +36,96 @@ namespace BankAccountProject
             //1 virtual method(at least)
             //1 override method(at least)
 
-            Client client1 = new Client("John", "Smith", "March 14, 1985", "123 45 6789", "123 West Main Street \nWalla Walla, Washington 99362");
-            Checking checkingSmith = new Checking(31415926, 1000.25d);
-            Savings savingsSmith = new Savings(31415927, 250.37d);
+            Client client1 = new Client();
+            Checking checkingAccount = new Checking();
+            Savings savingsAccount = new Savings();
             Console.WriteLine("Welcome to The Bank. You got money in it.");
             Console.WriteLine();
-            Console.WriteLine("1. View Client Information \n2. View Account Balance \n3. Deposit Funds \n4. Withdraw Funds \n5. Exit");
-            int menuChoice = int.Parse(Console.ReadLine());
-            if (menuChoice == 1)
+            string mainMenu = "Main Menu \n\n1. View Client Information \n2. View Account Balance \n3. Withdraw Funds \n4. Deposit Funds \n5. Exit\n";
+            Console.WriteLine(mainMenu);
+            while (true)
             {
-                client1.ClientInformation();
-            }
-            else if (menuChoice == 2)
-            {
-                Console.WriteLine("1. Checking Account Balance \n2. Savings Account Balance");
-                int checkAccountBalance = int.Parse(Console.ReadLine());
-                if (checkAccountBalance == 1)
+                
+                int menuChoice = int.Parse(Console.ReadLine());
+                if (menuChoice == 5)
                 {
-                    checkingSmith.DisplayAccountBalance();
+                    Console.WriteLine("Thank you for using The Bank.");
+                    Console.WriteLine();
+                    break;
                 }
-                else if (checkAccountBalance == 2)
+                else if (menuChoice == 1)
                 {
-                    savingsSmith.DisplayAccountBalance();
+                    client1.ClientInformation();
+                    Console.WriteLine();
+                    Console.WriteLine(mainMenu);
+                    Console.WriteLine();
                 }
-            }
-            else if (menuChoice == 3)
-            {
-                Console.WriteLine("1. Deposit into Checking Account \n2. Deposit into Savings Account");
-                int depositInAccount = int.Parse(Console.ReadLine());
-                if (depositInAccount == 1)
+                else if (menuChoice == 2)
                 {
-                    
+                    Console.WriteLine("1. Checking Account Balance \n2. Savings Account Balance");
+                    int checkAccountBalance = int.Parse(Console.ReadLine());
+                    if (checkAccountBalance == 1)
+                    {
+                        checkingAccount.DisplayAccountType();
+                        checkingAccount.DisplayAccountNumber();
+                        checkingAccount.DisplayAccountBalance();
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
+                    }
+                    else if (checkAccountBalance == 2)
+                    {
+                        savingsAccount.DisplayAccountType();
+                        savingsAccount.DisplayAccountNumber();
+                        savingsAccount.DisplayAccountBalance();
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
+                    }
                 }
-                else if (depositInAccount == 2)
+                else if (menuChoice == 3)
                 {
-
+                    Console.WriteLine("1. Withdraw from Checking Account \n2. Withdraw from Savings Account");
+                    int withdrawFromAccount = int.Parse(Console.ReadLine());
+                    if (withdrawFromAccount == 1)
+                    {
+                        Console.WriteLine("How much would you like to withdraw from your checking account today?");
+                        double withdrawAmount = double.Parse(Console.ReadLine());
+                        checkingAccount.Withdraw(withdrawAmount);
+                        Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                    }
+                    else if (withdrawFromAccount == 2)
+                    {
+                        Console.WriteLine("How much would you like to withdraw from your savings account today?");
+                        double withdrawAmount = double.Parse(Console.ReadLine());
+                        savingsAccount.Withdraw(withdrawAmount);
+                        Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
+                    }
                 }
-            }
-            else if (menuChoice == 4)
-            {
-
-            }
-            else if (menuChoice == 5)
-            {
-                Console.WriteLine("Thank you for using The Bank.");
-            }
-            else
-            {
-                Console.WriteLine("Please choose from the options listed below.");
-                MainMenu();
+                else if (menuChoice == 4)
+                {
+                    Console.WriteLine("1. Deposit into Checking Account \n2. Deposit into Savings Account");
+                    int depositIntoAccount = int.Parse(Console.ReadLine());
+                    if (depositIntoAccount == 1)
+                    {
+                        Console.WriteLine("How much would you like to deposit into your checking account today?");
+                        double depositAmount = double.Parse(Console.ReadLine());
+                        checkingAccount.Deposit(depositAmount);
+                        Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                    }
+                    else if (depositIntoAccount == 2)
+                    {
+                        Console.WriteLine("How much would you like to deposit into your savings account today?");
+                        double depositAmount = double.Parse(Console.ReadLine());
+                        savingsAccount.Deposit(depositAmount);
+                        Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please choose from the options listed below.");
+                    MainMenu();
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccountProject
 {
-    class AccountBase
+    abstract class AccountBase
     {
         //An account number
         //Balance
@@ -18,37 +18,36 @@ namespace BankAccountProject
 
         protected int accountNumber;
         protected double accountBalance;
-        protected double withdrawMoney;
-        protected double depositMoney;
-
+        protected string accountType;
+        
         public int AccountNumber
         {
             get { return this.accountNumber; }
+            set { this.accountNumber = value; }
         }
+
         public double AccountBalance
         {
             get { return this.accountBalance; }
+            set { this.accountBalance = value; }
         }
-        public double WithdrawMoney
+        public string AccountType
         {
-            get { return this.withdrawMoney; }
+            get { return this.accountType; }
+            set { this.accountType = value;  }
         }
-        public double DepositMoney
-        {
-            get { return this.depositMoney; }
-        }
+        
 
         public AccountBase()
         {
 
         }
 
-        public AccountBase(int accountNumber, double accountBalance, double withdrawMoney, double depositMoney)
+        public AccountBase(int accountNumber, double accountBalance, string accountType)
         {
             this.accountNumber = accountNumber;
             this.accountBalance = accountBalance;
-            this.withdrawMoney = withdrawMoney;
-            this.depositMoney = depositMoney;
+            this.accountType = accountType;
         }
         public virtual void DisplayAccountNumber()
         {
@@ -58,11 +57,7 @@ namespace BankAccountProject
         {
 
         }
-        public virtual void DisplayWithdrawMoney()
-        {
-
-        }
-        public virtual void DisplayDepositMoney()
+        public virtual void DisplayAccountType()
         {
 
         }

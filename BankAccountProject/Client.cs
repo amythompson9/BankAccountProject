@@ -17,8 +17,8 @@ namespace BankAccountProject
         private string clientFirstName;
         private string clientLastName;
         private string birthDate;
-        private string socialSecurityNumber;
-        private string clientAddress;
+        private string addressLineOne;
+        private string addressLineTwo;
 
         public string ClientFirstName
         {
@@ -32,28 +32,29 @@ namespace BankAccountProject
         {
             get { return this.birthDate; }
         }
-        public string SocialSecurityNumber
+        public string AddressLineOne
         {
-            get { return this.socialSecurityNumber; }
+            get { return this.addressLineOne; }
         }
-        public string ClientAddress
+        public string AddressLineTwo
         {
-            get { return this.clientAddress; }
+            get { return this.addressLineTwo; }
         }
-        public Client(string clientFirstName, string clientLastName, string birthDate, string socialSecurityNumber, string clientAddress)
+        public Client()
         {
-            this.clientFirstName = clientFirstName;
-            this.clientLastName = clientLastName;
-            this.birthDate = birthDate;
-            this.socialSecurityNumber = socialSecurityNumber;
-            this.clientAddress = clientAddress;
+            this.clientFirstName = "John";
+            this.clientLastName = "Smith";
+            this.birthDate = "March 14, 1985";
+            this.addressLineOne = "123 West Main Street";
+            this.addressLineTwo = "Walla Walla, Washington 99362";
         }
         public void ClientInformation()
         {
+            Console.WriteLine();
             Console.WriteLine("Name: " + "\n" + clientFirstName + " " + clientLastName + "\n");
             Console.WriteLine("Birthdate: " +"\n" + birthDate + "\n");
-            Console.WriteLine("Social Security Number: " + "\n" + socialSecurityNumber + "\n");
-            Console.WriteLine("Current Address: " + "\n" +clientAddress + "\n");
+            Console.WriteLine("Current Address: " + "\n" + addressLineOne);
+            Console.WriteLine(addressLineTwo + "\n");
         }
         
     }

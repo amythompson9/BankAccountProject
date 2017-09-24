@@ -8,58 +8,31 @@ namespace BankAccountProject
 {
     class Checking: AccountBase
     {
-        //Checking Account Class(derived)
-        //1 constructor
-        public int AccountNumber
-        {
-            get { return this.accountNumber; }
-        }
-        public double AccountBalance
-        {
-            get { return this.accountBalance; }
-        }
-        public double WithdrawMoney
-        {
-            get { return this.withdrawMoney; }
-        }
-        public double DepositMoney
-        {
-            get { return this.depositMoney; }
-        }
-
         public Checking()
         {
-
-        }
-
-        public Checking(int accountNumber, double accountBalance)
-        {
-            this.accountNumber = accountNumber;
-            this.accountBalance = accountBalance;
-            this.withdrawMoney = withdrawMoney;
-            this.depositMoney = depositMoney;
+            this.accountNumber = 123456789;
+            this.accountBalance = 1000.25d;
+            this.accountType = "Checking";
         }
         public override void DisplayAccountNumber()
         {
-            Console.WriteLine("Checking Account Number: " + accountNumber + "\n");
+            Console.WriteLine("Account Number: {0}" + "\n", + accountNumber);
         }
         public override void DisplayAccountBalance()
         {
-            Console.WriteLine("Checking Account Balance: " + accountBalance + "\n");
+            Console.WriteLine("Account Balance: {0}" + "\n", accountBalance);
         }
-        public override void DisplayWithdrawMoney()
+        public override void DisplayAccountType()
         {
-            Console.WriteLine("How much would you like to withdraw from your checking account today?");
-            double amountFromChecking = double.Parse(Console.ReadLine());
-            double newCheckingBalance = (accountBalance - amountFromChecking);
-            Console.WriteLine("Your new checking account balance is $" + newCheckingBalance + "\n");
+            Console.WriteLine("Checking" + "\n");
         }
-        public override void DisplayDepositMoney()
+        public void Deposit(double depositAmount)
         {
-            Console.WriteLine("How much would you like to deposit into your checking account today?");
-            double amountToChecking = double.Parse(Console.ReadLine());
-            double newCheckingBalance = (accountBalance + amountToChecking);
-            Console.WriteLine("Your new checking account balance is $" + newCheckingBalance + "\n");
+            AccountBalance += depositAmount;
+        }
+        public void Withdraw(double withdrawAmount)
+        {
+            AccountBalance -= withdrawAmount;
         }
     }
 }

@@ -17,33 +17,33 @@ namespace BankAccountProject
         public double MinimumBalance
         {
             get { return this.minimumBalance; }
+            set { value = minimumBalance; }
         }
-        public Savings(int accountNumber, double accountBalance)
+        public Savings()
         {
-            this.accountNumber = accountNumber;
-            this.accountBalance = accountBalance;
+            this.accountNumber = 987654321;
+            this.accountBalance = 314.15d;
+            this.accountType = "Savings";
         }
         public override void DisplayAccountNumber()
         {
-            Console.WriteLine("Savings Account Number: " + accountNumber + "\n");
+            Console.WriteLine("Savings Account Number: {0}" + "\n", accountNumber);
         }
         public override void DisplayAccountBalance()
         {
-            Console.WriteLine("Savings Account Balance: " + accountBalance + "\n");
+            Console.WriteLine("Savings Account Balance: {0}" + "\n", accountBalance);
         }
-        public override void DisplayWithdrawMoney()
+        public override void DisplayAccountType()
         {
-            Console.WriteLine("How much would you like to withdraw from your savings account today?");
-            double amountFromSavings = double.Parse(Console.ReadLine());
-            double newSavingsBalance = (accountBalance - amountFromSavings);
-            Console.WriteLine("Your new checking account balance is $" + newSavingsBalance + "\n");
+            Console.WriteLine("Savings");
         }
-        public override void DisplayDepositMoney()
+        public void Deposit(double depositAmount)
         {
-            Console.WriteLine("How much would you like to deposit into your savings account today?");
-            double amountToSavings = double.Parse(Console.ReadLine());
-            double newSavingsBalance = (accountBalance + amountToSavings);
-            Console.WriteLine("Your new checking account balance is $" + newSavingsBalance + "\n");
+            AccountBalance += depositAmount;
+        }
+        public void Withdraw(double withdrawAmount)
+        {
+            AccountBalance -= withdrawAmount;
         }
     }
 }
