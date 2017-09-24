@@ -126,7 +126,19 @@ namespace BankAccountProject
                         Console.WriteLine();
                         double withdrawAmount = double.Parse(Console.ReadLine());
                         checkingAccount.Withdraw(withdrawAmount);
-                        Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                        while (checkingAccount.AccountBalance < 0)
+                        {
+                            Console.WriteLine("This amount will overdraw your checking account.");
+                            checkingAccount.AccountBalance += withdrawAmount;
+                            Console.WriteLine("Your current balance is ${0}.", checkingAccount.AccountBalance);
+                            Console.WriteLine("How much would you like to withdraw from your checking account today?");
+                            withdrawAmount = double.Parse(Console.ReadLine());
+                            checkingAccount.Withdraw(withdrawAmount);
+                        }
+                        if (checkingAccount.AccountBalance > 0)
+                        {
+                            Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
+                        }
                         Console.WriteLine();
                         Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
                         Console.WriteLine();
