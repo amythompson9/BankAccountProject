@@ -8,13 +8,7 @@ namespace BankAccountProject
 {
     class Program
     {
-        //1. View Client Information
-        //2. View Account Balance
-        //3. Deposit Funds
-        //4. Withdraw Funds
-        //5. Exit
-
-            static void MainMenu()
+        static void MainMenu()
         {
             
         }
@@ -39,7 +33,6 @@ namespace BankAccountProject
                 }
                 else if (menuChoice == 1)
                 {
-                    Console.WriteLine();
                     client1.ClientInformation();
                     Console.WriteLine();
                     Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
@@ -49,7 +42,6 @@ namespace BankAccountProject
                     if (infoMenu == 1)
                     {
                         Console.WriteLine(mainMenu);
-                        Console.WriteLine();
                     }
                     else if (infoMenu == 5)
                     {
@@ -79,7 +71,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {
@@ -102,7 +93,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {
@@ -121,22 +111,17 @@ namespace BankAccountProject
                     Console.WriteLine();
                     if (withdrawFromAccount == 1)
                     {
-                        Console.WriteLine();
                         Console.WriteLine("How much would you like to withdraw from your checking account today?");
                         Console.WriteLine();
                         double withdrawAmount = double.Parse(Console.ReadLine());
                         checkingAccount.Withdraw(withdrawAmount);
                         while (checkingAccount.AccountBalance < 0)
                         {
-                            Console.WriteLine("This amount will overdraw your checking account.");
-                            checkingAccount.AccountBalance += withdrawAmount;
-                            Console.WriteLine("Your current balance is ${0}.", checkingAccount.AccountBalance);
-                            Console.WriteLine("How much would you like to withdraw from your checking account today?");
-                            withdrawAmount = double.Parse(Console.ReadLine());
-                            checkingAccount.Withdraw(withdrawAmount);
+                            checkingAccount.Overdraw(withdrawAmount);
                         }
                         if (checkingAccount.AccountBalance > 0)
                         {
+                            Console.WriteLine();
                             Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
                         }
                         Console.WriteLine();
@@ -147,7 +132,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {
@@ -158,7 +142,6 @@ namespace BankAccountProject
                     }
                     else if (withdrawFromAccount == 2)
                     {
-                        Console.WriteLine();
                         Console.WriteLine("How much would you like to withdraw from your savings account today?");
                         Console.WriteLine();
                         double withdrawAmount = double.Parse(Console.ReadLine());
@@ -166,12 +149,7 @@ namespace BankAccountProject
                         savingsAccount.Withdraw(withdrawAmount);
                         while (savingsAccount.AccountBalance < savingsAccount.MinimumBalance)
                         {
-                            Console.WriteLine("You must maintain a minimum balance of $100.00 in your Savings Account.");
-                            savingsAccount.AccountBalance += withdrawAmount;
-                            Console.WriteLine("Your current balance is ${0}.", savingsAccount.AccountBalance);
-                            Console.WriteLine("How much would you like to withdraw from your savings account today?");
-                            withdrawAmount = double.Parse(Console.ReadLine());
-                            savingsAccount.Withdraw(withdrawAmount);
+                            savingsAccount.Minimum(withdrawAmount);
                         }
                         if (savingsAccount.AccountBalance > savingsAccount.MinimumBalance)
                         {
@@ -185,7 +163,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {
@@ -197,14 +174,18 @@ namespace BankAccountProject
                 }
                 else if (menuChoice == 4)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("1. Deposit into Checking Account \n2. Deposit into Savings Account");
+                    Console.WriteLine();
                     int depositIntoAccount = int.Parse(Console.ReadLine());
                     if (depositIntoAccount == 1)
                     {
                         Console.WriteLine();
                         Console.WriteLine("How much would you like to deposit into your checking account today?");
+                        Console.WriteLine();
                         double depositAmount = double.Parse(Console.ReadLine());
                         checkingAccount.Deposit(depositAmount);
+                        Console.WriteLine();
                         Console.WriteLine("Your new current balance is ${0}", checkingAccount.AccountBalance);
                         Console.WriteLine();
                         Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
@@ -214,7 +195,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {
@@ -227,8 +207,10 @@ namespace BankAccountProject
                     {
                         Console.WriteLine();
                         Console.WriteLine("How much would you like to deposit into your savings account today?");
+                        Console.WriteLine();
                         double depositAmount = double.Parse(Console.ReadLine());
                         savingsAccount.Deposit(depositAmount);
+                        Console.WriteLine();
                         Console.WriteLine("Your new current balance is ${0}", savingsAccount.AccountBalance);
                         Console.WriteLine();
                         Console.WriteLine("To return to the Main Menu, press '1'. \nTo Exit, press '5'.");
@@ -238,7 +220,6 @@ namespace BankAccountProject
                         if (infoMenu == 1)
                         {
                             Console.WriteLine(mainMenu);
-                            Console.WriteLine();
                         }
                         else if (infoMenu == 5)
                         {

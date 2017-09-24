@@ -46,5 +46,18 @@ namespace BankAccountProject
         {
             AccountBalance -= withdrawAmount;
         }
+        public void Minimum(double withdrawAmount)
+        {
+            Console.WriteLine("You must maintain a minimum balance of $100.00 in your Savings Account.");
+            AccountBalance += withdrawAmount;
+            Console.WriteLine();
+            Console.WriteLine("Your current balance is ${0}.", AccountBalance);
+            Console.WriteLine();
+            Console.WriteLine("How much would you like to withdraw from your savings account today?");
+            Console.WriteLine();
+            withdrawAmount = double.Parse(Console.ReadLine());
+            Withdraw(withdrawAmount);
+            Console.WriteLine();
+        }
     }
 }

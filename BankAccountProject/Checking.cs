@@ -34,5 +34,18 @@ namespace BankAccountProject
         {
             AccountBalance -= withdrawAmount;
         }
+        public void Overdraw(double withdrawAmount)
+        {
+            Console.WriteLine();
+            Console.WriteLine("This amount will overdraw your checking account.");
+            AccountBalance += withdrawAmount;
+            Console.WriteLine();
+            Console.WriteLine("Your current balance is ${0}.", AccountBalance);
+            Console.WriteLine();
+            Console.WriteLine("How much would you like to withdraw from your checking account today?");
+            Console.WriteLine();
+            withdrawAmount = double.Parse(Console.ReadLine());
+            Withdraw(withdrawAmount);
+        }
     }
 }
