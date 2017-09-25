@@ -49,6 +49,14 @@ namespace BankAccountProject
                         Console.WriteLine();
                         break;
                     }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Please enter a valid number.");
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
+                    }
                     
                 }
                 else if (menuChoice == 2)
@@ -78,6 +86,14 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
                     }
                     else if (checkAccountBalance == 2)
                     {
@@ -100,6 +116,22 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Please enter a valid number.");
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
                     }
                 }
                 else if (menuChoice == 3)
@@ -139,6 +171,14 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
                     }
                     else if (withdrawFromAccount == 2)
                     {
@@ -170,6 +210,22 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Please enter a valid number.");
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
                     }
                 }
                 else if (menuChoice == 4)
@@ -202,6 +258,14 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
                     }
                     else if (depositIntoAccount == 2)
                     {
@@ -227,6 +291,22 @@ namespace BankAccountProject
                             Console.WriteLine();
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Please enter a valid number.");
+                            Console.WriteLine();
+                            Console.WriteLine(mainMenu);
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Please enter a valid number.");
+                        Console.WriteLine();
+                        Console.WriteLine(mainMenu);
+                        Console.WriteLine();
                     }
                 }
                 else

@@ -10,9 +10,9 @@ namespace BankAccountProject
     {
         public Checking()
         {
-            this.accountNumber = 123456789;
-            this.accountBalance = 1000.25d;
-            this.accountType = "Checking";
+            AccountNumber = 123456789;
+            AccountBalance = 1000.25d;
+            AccountType = "Checking";
         }
         public override void DisplayAccountNumber()
         {

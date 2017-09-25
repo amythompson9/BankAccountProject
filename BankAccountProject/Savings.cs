@@ -21,9 +21,9 @@ namespace BankAccountProject
         }
         public Savings()
         {
-            this.accountNumber = 987654321;
-            this.accountBalance = 314.15d;
-            this.accountType = "Savings";
+            AccountNumber = 987654321;
+            AccountBalance = 314.15d;
+            AccountType = "Savings";
             this.minimumBalance = 100.00d;
         }
         public override void DisplayAccountNumber()

@@ -57,9 +57,6 @@ namespace BankAccountProject
         {
 
         }
-        public virtual void DisplayAccountType()
-        {
-
-        }
+        public abstract void DisplayAccountType();
     }
 }
